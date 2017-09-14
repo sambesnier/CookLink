@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:head>
+		<title>Example</title>
+		<h:outputStylesheet library="css" name="style.css" />
+	</h:head>
+
+<h:body>
+
+<div class="bg"></div>
+
+<div class="center-block">
+
+	<h1>Hello World #{example.name}</h1>
+
+	<img src="#{resource['images/example.png']}" />
+	
+</div>
+
+</h:body>
+
+</html>
