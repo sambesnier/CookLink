@@ -95,6 +95,50 @@ body {
 	margin: 0 auto;
 }
 
+.recette {
+	padding: 20px;
+    box-shadow: 0px 0px 10px;
+    margin: 30px;
+    border-radius: 5px;
+}
+
+.recette a {
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
+}
+
+.img-recette {
+	width: 28%;
+    display: inline-block;
+}
+
+.img-recette img {
+	width: 100%;
+}
+
+.desc-recette {
+	width: 65%;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.name-recette {
+	font-size: 45px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+}
+
+.price-recette {
+	font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+}
+
+.category-recette {
+	font-size: 20px;
+}
+
 .ing .form-control {
 	width: 48%;
 	display: initial;

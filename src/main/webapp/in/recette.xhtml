@@ -18,6 +18,10 @@
 
 <h:body>
 
+	<f:metadata>
+		<f:viewParam name="id" value="#{recette.id}" />
+	</f:metadata>
+
 	<div class="header">
 		<div class="header-container">
 			<a href="index.xhtml" class="logo"><img
@@ -42,25 +46,28 @@
 
 	<div class="center-block-main">
 
-		<h1>Nos dernières recettes</h1>
+		<h1>#{recette.recipe.title}</h1>
 
 		<div class="container">
 			<div class="recettes">
-				<ui:repeat var="recipe" value="#{recettesList.recipes}">
-					<a href="in/recette.xhtml?id=#{recipe.id}">
-						<div class="recette">
-							<div class="img-recette">
-								<img src="#{resource['images/recipe.jpg']}" />
-							</div>
-							<div class="desc-recette">
-								<div class="name-recette">#{recipe.title} pour
-									#{recipe.portions} personnes</div>
-								<div class="price-recette">#{recipe.priceBean.price}</div>
-								<div class="category-recette">#{recipe.categoryBean.category}</div>
-							</div>
-						</div>
-					</a>
+				#{recette.recipe.categoryBean.category}
+				#{recette.recipe.priceBean.price}
+				#{recette.recipe.user.username}
+				#{recette.recipe.preparation}
+				#{recette.recipe.baking}
+				Ingrédients :
+				<ul>
+				<ui:repeat var="ing" value="#{recette.recipe.ingredients}">
+					<li>#{ing.value} #{ing.name}</li>	
 				</ui:repeat>
+				</ul>
+				
+				Etapes :
+				<ul>
+				<ui:repeat var="step" value="#{recette.recipe.steps}">
+					<li>#{step.order} #{step.description}</li>	
+				</ui:repeat>
+				</ul>
 			</div>
 		</div>
 

@@ -11,7 +11,9 @@ import java.util.List;
  */
 @Entity
 @Table(name="recipes")
-@NamedQuery(name="Recipe.findAll", query="SELECT r FROM Recipe r")
+@NamedQueries({ 
+	@NamedQuery(name="Recipe.findAll", query="SELECT r FROM Recipe r"),
+	@NamedQuery(name="Recipe.findById", query="SELECT r FROM Recipe r WHERE r.id = :id")})
 public class Recipe implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -73,7 +75,7 @@ public class Recipe implements Serializable {
 	private User user;
 
 	//bi-directional many-to-one association to Step
-	@OneToMany(mappedBy="recipe")
+	@OneToMany(mappedBy="recipe", cascade = CascadeType.ALL)
 	private List<Step> steps;
 
 	public Recipe() {
