@@ -2,10 +2,17 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
+	
+	background: url("#{resource['images/bg.jpg']}");
+	background-size: cover;
+	height: 100vh;
+	width: 100%;
+	background-attachment: fixed;
 }
 
 .center-block {
-	padding-top: 200px;
+	padding-top: 120px;
+	margin-bottom: 40px;
 }
 
 .header {
@@ -14,14 +21,36 @@ body {
     width: 100%;
 }
 
+.header .logo {
+	float: left;
+}
+
 .header-container {
 	width: 1200px;
 	margin: 0 auto;
 }
 
+.header button {
+	color: #FFFFA0;
+    float: right;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 20px 5px;
+    padding: 10px 35px;
+    border-radius: 35px;
+    text-transform: uppercase;
+}
+
+.header button:hover {
+    background: rgba(255,255,255,0.2);
+    color: #FFFFA0;
+}
+
 .header-container img {
-	height: 50px;
-	padding-top: 10px;
+	height: 75px;
+    padding: 10px;
 }
 
 .header-btn {
@@ -37,14 +66,133 @@ body {
 
 .header-btn:hover {
 	background-color: rgba(255,255,255,0.2);
+	color: #FFFFA0;
+    text-decoration: none;
 }
 
-h1 {
-	font-size: 200px;
+.center-block-main {
+	padding-top: 50px;
+}
+
+.center-block-main h1 {
+	font-size: 150px;
 	color: white;
+	margin-top: 60px;
+	margin-bottom: 0;
 	text-align: center;
 	text-shadow: 2px 2px #16a085, 5px 5px #FFFFA0;
 	font-family: 'Amatic SC', cursive;
+}
+
+.center-block-main .container{
+	background: white;
+	width: 100%;
+	margin-top: 40px;
+}
+
+.center-block-main .container .recettes{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.ing .form-control {
+	width: 48%;
+	display: initial;
+}
+
+.center-block h1 {
+	font-size: 200px;
+	color: white;
+	margin-top: 60px;
+	margin-bottom: 0;
+	text-align: center;
+	text-shadow: 2px 2px #16a085, 5px 5px #FFFFA0;
+	font-family: 'Amatic SC', cursive;
+}
+
+.center-block h2 {
+	font-size: 25px;
+	color: white;
+	text-align: center;
+}
+
+.center-block .cta_home {
+	margin: 60px auto;
+    width: 280px;
+    display: block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.center-block .cta_home:hover {
+    background-color: white;
+    color: #16a085;
+}
+
+.center-block a {
+	text-decoration: none;
+}
+
+.connexion {
+	background: white;
+    border-radius: 5px;
+    width: 490px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.new-recette {
+	background: white;
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.new-recette h1 {
+	font-size: 75px;
+    color: #2c3e50;
+    padding: 30px;
+    text-align: center;
+    text-shadow: none;
+    margin: 0;
+}
+
+.connexion h1 {
+	font-size: 75px;
+    color: #2c3e50;
+    padding: 30px;
+    text-align: center;
+    text-shadow: none;
+    margin: 0;
+}
+
+.form-container {
+	padding: 20px;
+    text-align: center;
+}
+
+.form-container .btn-signin {
+	padding: 10px;
+    border-radius: 5px;
+    background: #3498db;
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.form-container .btn-signup {
+	margin: 0;
+}
+
+.form-container p {
+	margin-top: 10px;
 }
 
 .bg {

@@ -36,17 +36,45 @@
 		</div>
 	</div>
 
-	
+	<div class="bg"></div>
 
 	<div class="center-block">
 
-		<h1>Cooklink</h1>
+		<div class="connexion">
+			<h1>Connectez vous</h1>
 
-		<h2>Partagez vos recettes de grand mère ou venez consulter celles
-			des autres</h2>
+			<div class="form-container">
 
-		<a href="recettes.xhtml"><button class="cta_home">Consultez
-				nos recettes</button></a>
+				<b:form class="loginForm">
+
+					<b:inputText placeholder="Nom d'utilisateur"
+						value="#{inscription.username}" ajax="true" autocomplete="false"
+						update="@(.message)">
+					</b:inputText>
+
+					<b:inputText placeholder="Adresse mail" value="#{inscription.mail}"
+						ajax="true" autocomplete="false" update="@(.message)">
+					</b:inputText>
+
+					<b:inputSecret placeholder="Mot de passe" id="password"
+						value="#{inscription.password}" ajax="true" autocomplete="false"
+						update="@(.message)">
+					</b:inputSecret>
+
+					<b:inputSecret placeholder="Confrmation de MDP" id="password2"
+						value="#{inscription.password2}" ajax="true" autocomplete="false"
+						update="@(.message)">
+					</b:inputSecret>
+
+					<b:commandButton value="Inscription"
+						onclick="ajax:inscription.submit()" class="btn-signin" />
+					<p>
+						Déjà un compte? <a href="connexion.xhtml" class="btn-signup">Se
+							connecter</a>
+					</p>
+				</b:form>
+			</div>
+		</div>
 
 	</div>
 

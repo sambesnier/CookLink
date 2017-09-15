@@ -3,25 +3,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:b="http://bootsfaces.net/ui">
-	
-	<h:head>
-		<title>Example</title>
-		<h:outputStylesheet library="css" name="style.css" />
-	</h:head>
+
+<h:head>
+	<title>Example</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
 
 <h:body>
 
-<div class="bg"></div>
+	<div class="header">
+		<div class="header-container">
+			<a href="../index.xhtml" class="logo"><img src="#{resource['images/cooklink.png']}" /></a>
+			<c:if test="#{empty user}">
+				<a href="connexion.xhtml" class="header-btn">Connexion</a>
+			</c:if>
+			<c:if test="#{not empty user}">
+				<b:form>
+					<b:commandButton onclick="ajax:logoutController.logout()"
+						class="header-btn-logout" value="Se déconnecter"></b:commandButton>
+				</b:form>
+				<a href="newRecette.xhtml" class="header-btn">Proposer une recette</a>
+				<a href="../recettes.xhtml" class="header-btn">Rechercher une recette</a>
+			</c:if>
+		</div>
+	</div>
 
-<div class="center-block">
+	<div class="bg"></div>
 
-	<h1>Hello World #{example.name}</h1>
+	<div class="center-block">
 
-	<img src="#{resource['images/example.png']}" />
-	
-</div>
+		<h1>Hello World #{example.name}</h1>
+
+		<img src="#{resource['images/example.png']}" />
+
+	</div>
 
 </h:body>
 

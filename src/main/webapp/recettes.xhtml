@@ -30,23 +30,30 @@
 					<b:commandButton onclick="ajax:logoutController.logoutOut()"
 						class="header-btn" value="Se déconnecter"></b:commandButton>
 				</b:form>
-				<a href="in/newRecette.xhtml" class="header-btn">Proposer une recette</a>
-				<a href="recettes.xhtml" class="header-btn">Rechercher une recette</a>
+				<a href="in/newRecette.xhtml" class="header-btn">Proposer une
+					recette</a>
+				<a href="recettes.xhtml" class="header-btn">Rechercher une
+					recette</a>
 			</c:if>
 		</div>
 	</div>
 
-	
+	<div class="bg"></div>
 
-	<div class="center-block">
+	<div class="center-block-main">
 
-		<h1>Cooklink</h1>
+		<h1>Nos dernières recettes</h1>
 
-		<h2>Partagez vos recettes de grand mère ou venez consulter celles
-			des autres</h2>
-
-		<a href="recettes.xhtml"><button class="cta_home">Consultez
-				nos recettes</button></a>
+		<div class="container">
+			<div class="recettes">
+				<ui:repeat var="recipe" value="#{recettesList.recipes}">
+					<div class="recette">
+						<div class="img-recette"></div>
+						<div class="name-recette">#{recipe.title}</div>
+					</div>
+				</ui:repeat>
+			</div>
+		</div>
 
 	</div>
 
