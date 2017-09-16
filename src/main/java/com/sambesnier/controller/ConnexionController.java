@@ -44,7 +44,7 @@ public class ConnexionController {
         	session.setAttribute("user", sessionUser);
         	
         	try {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("in/logged.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("recettes.xhtml");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
