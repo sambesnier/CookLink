@@ -20,7 +20,7 @@ public class Step implements Serializable {
 
 	private String description;
 
-	private String order;
+	private int step_numb;
 
 	//bi-directional many-to-one association to Recipe
 	@ManyToOne
@@ -46,12 +46,18 @@ public class Step implements Serializable {
 		this.description = description;
 	}
 
-	public String getOrder() {
-		return this.order;
+	/**
+	 * @return the step_numb
+	 */
+	public int getStep_numb() {
+		return this.step_numb;
 	}
 
-	public void setOrder(String order) {
-		this.order = order;
+	/**
+	 * @param step_numb the step_numb to set
+	 */
+	public void setStep_numb(int step_numb) {
+		this.step_numb = step_numb;
 	}
 
 	public Recipe getRecipe() {

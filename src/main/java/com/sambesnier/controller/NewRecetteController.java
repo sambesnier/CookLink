@@ -99,7 +99,9 @@ public class NewRecetteController {
 	}
 	
 	public void addStep() {
-		steps.add(new Step());
+		Step step = new Step();
+		step.setStep_numb(steps.size() + 1);
+		steps.add(step);
 	}
 	
 	public void delIngredient() {
@@ -263,7 +265,9 @@ public class NewRecetteController {
 	 */
 	public List<Step> getSteps() {
 		if(steps.size() == 0) {
-			steps.add(new Step());
+			Step step = new Step();
+			step.setStep_numb(steps.size() + 1);
+			steps.add(step);
 		}
 		return steps;
 	}

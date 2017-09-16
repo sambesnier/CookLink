@@ -24,7 +24,7 @@
 
 	<div class="header">
 		<div class="header-container">
-			<a href="index.xhtml" class="logo"><img
+			<a href="../index.xhtml" class="logo"><img
 				src="#{resource['images/cooklink.png']}" /></a>
 			<c:if test="#{empty user}">
 				<a href="connexion.xhtml" class="header-btn">Connexion</a>
@@ -34,9 +34,9 @@
 					<b:commandButton onclick="ajax:logoutController.logoutOut()"
 						class="header-btn" value="Se déconnecter"></b:commandButton>
 				</b:form>
-				<a href="in/newRecette.xhtml" class="header-btn">Proposer une
+				<a href="newRecette.xhtml" class="header-btn">Proposer une
 					recette</a>
-				<a href="recettes.xhtml" class="header-btn">Rechercher une
+				<a href="../recettes.xhtml" class="header-btn">Rechercher une
 					recette</a>
 			</c:if>
 		</div>
@@ -50,24 +50,41 @@
 
 		<div class="container">
 			<div class="recettes">
-				#{recette.recipe.categoryBean.category}
-				#{recette.recipe.priceBean.price}
-				#{recette.recipe.user.username}
-				#{recette.recipe.preparation}
-				#{recette.recipe.baking}
-				Ingrédients :
+			
+				<div class="recipe-photo">
+					<img src="#{resource['images/recipe.jpg']}" style="width: 100%;" />
+				</div>
+			
+				<div class="recipe-pres">
 				<ul>
-				<ui:repeat var="ing" value="#{recette.recipe.ingredients}">
-					<li>#{ing.value} #{ing.name}</li>	
-				</ui:repeat>
+					<li>#{recette.recipe.categoryBean.category}</li> 
+					<li>Prix : #{recette.recipe.priceBean.price}</li>
+					<li>Proposée par : #{recette.recipe.user.username}</li> 
+					<li>Temps de préparation : #{recette.recipe.preparation} min</li> 
+					<li>Temps de cuisson : #{recette.recipe.baking} min</li>
 				</ul>
 				
-				Etapes :
-				<ul>
-				<ui:repeat var="step" value="#{recette.recipe.steps}">
-					<li>#{step.order} #{step.description}</li>	
-				</ui:repeat>
-				</ul>
+				</div>
+				
+				<div class="recipe-guide">
+
+					<div class="ingredients">
+						Ingrédients :
+						<ul>
+							<ui:repeat var="ing" value="#{recette.recipe.ingredients}">
+								<li>#{ing.value} #{ing.name}</li>
+							</ui:repeat>
+						</ul>
+					</div>
+					<div class="steps">
+						Etapes :
+						<ul>
+							<ui:repeat var="step" value="#{recette.recipe.steps}">
+								<li>#{step.step_numb} - #{step.description}</li>
+							</ui:repeat>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 

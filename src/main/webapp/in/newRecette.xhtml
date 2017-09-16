@@ -5,6 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
@@ -85,47 +86,44 @@
 						update="@(.message)">
 					</b:inputText>
 
+
+					<div class="dyn-form">
 					<label>Ingrédients</label>
+					<b:formGroup id="ingredients">
+						<c:forEach items="#{newrecette.ingredients}" var="ing">
+							<h:inputText a:placeholder="Nom de l'ingrédient" class="ing-name" value="#{ing.name}" />
+							<h:inputText a:placeholder="Proportions" class="ing-value" value="#{ing.value}" />
+						</c:forEach>
+						<h:commandButton value="+"
+							action="#{newrecette.addIngredient()}" immediate="true"
+							execute="@this">
+							<f:ajax render="ingredients" />
+						</h:commandButton>
+						<h:commandButton value="-"
+							action="#{newrecette.delIngredient()}" immediate="true"
+							execute="@this">
+							<f:ajax render="ingredients" />
+						</h:commandButton>
+					</b:formGroup>
 
-					
-					<c:forEach items="#{newrecette.ingredients}" var="ing">
-						<h:inputText value="#{ing.name}" />
-						<h:inputText value="#{ing.value}" />
-						<br />
-					</c:forEach>
-					<h:commandButton value="Add ingredient"
-						action="#{newrecette.addIngredient()}" immediate="true"
-						execute="@this">
-						<f:ajax render="recipe-form" />
-					</h:commandButton>
-					<h:commandButton value="Del ingredient"
-						action="#{newrecette.delIngredient()}" immediate="true"
-						execute="@this">
-						<f:ajax render="recipe-form" />
-					</h:commandButton>
-					
 					<label>Etapes</label>
-					
-					
-					<c:forEach items="#{newrecette.steps}" var="step">
-						<h:inputText value="#{step.order}" />
-						<h:inputText value="#{step.description}" />
-						<br />
-					</c:forEach>
-					<h:commandButton value="Add etape"
-						action="#{newrecette.addStep()}" immediate="true"
-						execute="@this">
-						<f:ajax render="recipe-form" />
-					</h:commandButton>
-					<h:commandButton value="Del etape"
-						action="#{newrecette.delStep()}" immediate="true"
-						execute="@this">
-						<f:ajax render="recipe-form" />
-					</h:commandButton>
-					
-
-					<b:commandButton value="Ajouter"
-						onclick="ajax:newrecette.submit()" class="btn-signin" />
+					<b:formGroup id="steps">
+						<c:forEach items="#{newrecette.steps}" var="step">
+							<h:inputText a:placeholder="Ordre de l'étape" class="step-numb" value="#{step.step_numb}" />
+							<h:inputText a:placeholder="Description de l'étape" class="step-desc" value="#{step.description}" />
+						</c:forEach>
+						<h:commandButton value="+"
+							action="#{newrecette.addStep()}" immediate="true" execute="@this">
+							<f:ajax render="steps" />
+						</h:commandButton>
+						<h:commandButton value="-"
+							action="#{newrecette.delStep()}" immediate="true" execute="@this">
+							<f:ajax render="steps" />
+						</h:commandButton>
+					</b:formGroup>
+					</div>
+					<b:commandButton value="Ajouter" onclick="ajax:newrecette.submit()"
+						class="btn-signin" />
 				</b:form>
 			</div>
 		</div>
